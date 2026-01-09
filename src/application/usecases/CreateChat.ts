@@ -24,7 +24,11 @@ export class CreateChat {
 
   async execute(ctx: AuthContext, input: CreateChatInput): Promise<CreateChatOutput> {
     if (!ctx.userId) {
-      throw new Error('User must be authenticated to create a chat');
+      throw new Error(
+        'User must be authenticated to create a chat. ' +
+        'You are using a TENANT API key which does not have user context. ' +
+        'Please use a USER API key instead.'
+      );
     }
 
     // Verifica política de criação de chat

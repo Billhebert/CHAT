@@ -42,6 +42,12 @@ export class IssueToken {
       tenantId = apiKeyInfo.tenantId;
       userId = apiKeyInfo.userId;
 
+      console.log('[IssueToken] API Key validated:', {
+        type: apiKeyInfo.type,
+        tenantId,
+        userId: userId || '(none - tenant key)',
+      });
+
       await this.auditPort.log({
         tenantId,
         userId,

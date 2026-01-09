@@ -26,6 +26,7 @@ import { IngestDocument } from './application/usecases/IngestDocument.js';
 // HTTP
 import { authMiddleware } from './interfaces/http/middleware/auth.middleware.js';
 import { errorMiddleware } from './interfaces/http/middleware/error.middleware.js';
+import { requestLoggerMiddleware } from './interfaces/http/middleware/logger.middleware.js';
 import { createAuthRoutes } from './interfaces/http/routes/auth.routes.js';
 import { createChatRoutes } from './interfaces/http/routes/chat.routes.js';
 import { createRagRoutes } from './interfaces/http/routes/rag.routes.js';
@@ -41,6 +42,7 @@ async function bootstrap() {
   app.use(cors());
   app.use(express.json({ limit: '10mb' }));
   app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+  app.use(requestLoggerMiddleware);
 
   // Prisma
   const prisma = new PrismaClient();
