@@ -56,6 +56,7 @@ services:
       JWT_ACCESS_SECRET: ${JWT_ACCESS_SECRET:-your-super-secret-jwt-access-key-change-in-production}
       JWT_REFRESH_SECRET: ${JWT_REFRESH_SECRET:-your-super-secret-jwt-refresh-key-change-in-production}
       QDRANT_URL: http://qdrant:6333
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
       FILE_STORE_PATH: /app/storage
       FILE_STORE_TYPE: local
       MODELS_FILE: /app/models.json

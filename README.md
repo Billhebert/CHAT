@@ -19,10 +19,13 @@ A comprehensive, production-ready multi-tenant AI chat platform with advanced au
 
 ### RAG (Retrieval-Augmented Generation)
 - **Vector Database**: Qdrant for semantic search
+- **OpenAI Embeddings**: Uses text-embedding-3-small for semantic vectors
 - **ACL per Chunk**: Every chunk has its own access scope
 - **Document Versioning**: Track document changes over time
 - **Multiple Formats**: PDF, DOCX, TXT, MD, and more
 - **Hybrid Chunking**: Intelligent text segmentation
+
+> **⚠️ Important**: RAG functionality requires an OpenAI API key. Set `OPENAI_API_KEY` in your `.env` file or environment variables.
 
 ### Tools & Plugins
 - **MCP Support**: Both process-based and HTTP-based Model Context Protocol
@@ -114,6 +117,7 @@ npm run install:all
 ```bash
 cp .env.example .env
 # Edit .env with your configuration
+# REQUIRED for RAG: Set OPENAI_API_KEY in .env
 ```
 
 4. **Setup database**

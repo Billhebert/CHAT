@@ -1,13 +1,22 @@
 import { QdrantClient } from '@qdrant/js-client-rest';
 import { RagPort } from '../../application/ports/RagPort.js';
 import { RagQuery, RagResult } from '../../domain/rag/RagQuery.js';
+import OpenAI from 'openai';
 
 export class QdrantRagAdapter implements RagPort {
   private client: QdrantClient;
+  private openai: OpenAI;
 
   constructor() {
     const url = process.env.QDRANT_URL || 'http://localhost:6333';
     this.client = new QdrantClient({ url });
+
+    // Inicializa OpenAI para embeddings
+    const apiKey = process.env.OPENAI_API_KEY;
+    if (!apiKey) {
+      throw new Error('OPENAI_API_KEY environment variable is required for RAG functionality');
+    }
+    this.openai = new OpenAI({ apiKey });
   }
 
   private getCollectionName(tenantId: string): string {
@@ -161,12 +170,21 @@ export class QdrantRagAdapter implements RagPort {
   }
 
   /**
-   * Gera embedding (simplificado - usar modelo real em produção)
-   * Em produção, usar OpenAI, Cohere, ou modelo local
+   * Gera embedding usando OpenAI API
+   * Modelo: text-embedding-3-small (1536 dimensões, custo-efetivo)
    */
   private async generateEmbedding(text: string): Promise<number[]> {
-    // Implementação mockada - retorna vetor aleatório de 1536 dimensões
-    // Em produção, usar: OpenAI API, Cohere, ou modelo local (sentence-transformers)
-    return Array.from({ length: 1536 }, () => Math.random());
+    try {
+      const response = await this.openai.embeddings.create({
+        model: 'text-embedding-3-small',
+        input: text,
+        encoding_format: 'float',
+      });
+
+      return response.data[0].embedding;
+    } catch (error) {
+      console.error('Error generating embedding:', error);
+      throw new Error(`Failed to generate embedding: ${error instanceof Error ? error.message : 'Unknown error'}`);
+    }
   }
 }
