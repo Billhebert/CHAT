@@ -1,0 +1,412 @@
+{
+  "mk664qlhssft78gyw3": {
+    "id": "mk664qlhssft78gyw3",
+    "title": "teste",
+    "messages": [
+      {
+        "role": "user",
+        "content": "teste",
+        "timestamp": 1767920365302
+      },
+      {
+        "role": "assistant",
+        "content": "Hello! How can I help you today?",
+        "timestamp": 1767920372488
+      }
+    ],
+    "createdAt": 1767920352677,
+    "updatedAt": 1767920372488,
+    "model": "opencode/minimax-m2.1-free"
+  },
+  "mk67cc6monwi64afwhj": {
+    "id": "mk67cc6monwi64afwhj",
+    "title": "Teste",
+    "messages": [],
+    "createdAt": 1767922386862,
+    "updatedAt": 1767922386862,
+    "model": "opencode/minimax-m2.1-free",
+    "systemPrompt": null
+  },
+  "mk67jo0axijsayy87a8": {
+    "id": "mk67jo0axijsayy87a8",
+    "title": "Novo Chat",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Voce é um analista senior em PMOC (Plano de Manutenção, Operação e Controle) de sistemas de climatização. Responda as perguntas com base nas normas ABNT NBR 16401-1:2023, ABNT NBR 16401-2:2023 e ABNT NBR 16401-3:2023.",
+        "timestamp": 1767922728778
+      }
+    ],
+    "createdAt": 1767922728778,
+    "updatedAt": 1767922728778,
+    "model": "opencode/minimax-m2.1-free",
+    "systemPrompt": "Voce é um analista senior em PMOC (Plano de Manutenção, Operação e Controle) de sistemas de climatização. Responda as perguntas com base nas normas ABNT NBR 16401-1:2023, ABNT NBR 16401-2:2023 e ABNT NBR 16401-3:2023."
+  },
+  "mk67kak0hsqbkf878ti": {
+    "id": "mk67kak0hsqbkf878ti",
+    "title": "Novo Chat",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Voce é um analista senior em PMOC (Plano de Manutenção, Operação e Controle) de sistemas de climatização. Responda as perguntas com base nas normas ABNT NBR 16401-1:2023, ABNT NBR 16401-2:2023 e ABNT NBR 16401-3:2023.",
+        "timestamp": 1767922758000
+      },
+      {
+        "role": "user",
+        "content": "olá me chamo bill",
+        "timestamp": 1767922765409
+      },
+      {
+        "role": "assistant",
+        "content": "Esta é a início da nossa conversa. Não há histórico anterior. Como posso ajudá-lo hoje?",
+        "timestamp": 1767922771800
+      },
+      {
+        "role": "user",
+        "content": "poderia verificar um link para mim?",
+        "timestamp": 1767922799897
+      },
+      {
+        "role": "assistant",
+        "content": "Não tenho acesso ao histórico de conversas anteriores. Só vejo a mensagem atual. Como posso ajudar você agora?",
+        "timestamp": 1767922808692
+      }
+    ],
+    "createdAt": 1767922758000,
+    "updatedAt": 1767922808692,
+    "model": "opencode/minimax-m2.1-free",
+    "systemPrompt": "Voce é um analista senior em PMOC (Plano de Manutenção, Operação e Controle) de sistemas de climatização. Responda as perguntas com base nas normas ABNT NBR 16401-1:2023, ABNT NBR 16401-2:2023 e ABNT NBR 16401-3:2023."
+  },
+  "mk67ni3vckvrvwowen8": {
+    "id": "mk67ni3vckvrvwowen8",
+    "title": "Teste Hist�rico",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Voce é um analista senior em PMOC (Plano de Manutenção, Operação e Controle) de sistemas de climatização. Responda as perguntas com base nas normas ABNT NBR 16401-1:2023, ABNT NBR 16401-2:2023 e ABNT NBR 16401-3:2023.",
+        "timestamp": 1767922907755
+      },
+      {
+        "role": "user",
+        "content": "Ol�, meu nome � Bill",
+        "timestamp": 1767922915677
+      },
+      {
+        "role": "assistant",
+        "content": "What would you like me to do with the conversation history?",
+        "timestamp": 1767922921135
+      },
+      {
+        "role": "user",
+        "content": "Ol�, meu nome � Bill. Qual � o meu nome?",
+        "timestamp": 1767922957452
+      },
+      {
+        "role": "assistant",
+        "content": "Erro: history is not defined",
+        "timestamp": 1767922957452
+      }
+    ],
+    "createdAt": 1767922907755,
+    "updatedAt": 1767922957452,
+    "model": "opencode/minimax-m2.1-free",
+    "systemPrompt": "Voce é um analista senior em PMOC (Plano de Manutenção, Operação e Controle) de sistemas de climatização. Responda as perguntas com base nas normas ABNT NBR 16401-1:2023, ABNT NBR 16401-2:2023 e ABNT NBR 16401-3:2023."
+  },
+  "mk67oxz2t47s55tqc9q": {
+    "id": "mk67oxz2t47s55tqc9q",
+    "title": "Teste Simples",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Voce é um analista senior em PMOC (Plano de Manutenção, Operação e Controle) de sistemas de climatização. Responda as perguntas com base nas normas ABNT NBR 16401-1:2023, ABNT NBR 16401-2:2023 e ABNT NBR 16401-3:2023.",
+        "timestamp": 1767922974974
+      },
+      {
+        "role": "user",
+        "content": "Ol�, meu nome � Bill",
+        "timestamp": 1767923011301
+      },
+      {
+        "role": "assistant",
+        "content": "Erro: history is not defined",
+        "timestamp": 1767923011301
+      }
+    ],
+    "createdAt": 1767922974974,
+    "updatedAt": 1767923011301,
+    "model": "opencode/minimax-m2.1-free",
+    "systemPrompt": "Voce é um analista senior em PMOC (Plano de Manutenção, Operação e Controle) de sistemas de climatização. Responda as perguntas com base nas normas ABNT NBR 16401-1:2023, ABNT NBR 16401-2:2023 e ABNT NBR 16401-3:2023."
+  },
+  "mk67u72vs1da9gs5d8": {
+    "id": "mk67u72vs1da9gs5d8",
+    "title": "Teste Novo",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Voce é um analista senior em PMOC (Plano de Manutenção, Operação e Controle) de sistemas de climatização. Responda as perguntas com base nas normas ABNT NBR 16401-1:2023, ABNT NBR 16401-2:2023 e ABNT NBR 16401-3:2023.",
+        "timestamp": 1767923220055
+      },
+      {
+        "role": "user",
+        "content": "Ol�, meu nome � Bill",
+        "timestamp": 1767923227473
+      },
+      {
+        "role": "assistant",
+        "content": "Erro: Command failed: \"E:/app/OpenCode/opencode-cli.exe\" run --model \"opencode/minimax-m2.1-free\" \"Ol�, meu nome � Bill\"\nNo linha:1 caractere:36\r\n+ \"E:/app/OpenCode/opencode-cli.exe\" run --model \"opencode/minimax-m2.1 ...\r\n+                                    ~~~\r\nToken 'run' inesperado na expressão ou instrução.\r\n    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException\r\n    + FullyQualifiedErrorId : UnexpectedToken\r\n \r\n",
+        "timestamp": 1767923228051
+      }
+    ],
+    "createdAt": 1767923220055,
+    "updatedAt": 1767923228051,
+    "model": "opencode/minimax-m2.1-free",
+    "systemPrompt": "Voce é um analista senior em PMOC (Plano de Manutenção, Operação e Controle) de sistemas de climatização. Responda as perguntas com base nas normas ABNT NBR 16401-1:2023, ABNT NBR 16401-2:2023 e ABNT NBR 16401-3:2023."
+  },
+  "mk67uvxkb17mcyfw3n6": {
+    "id": "mk67uvxkb17mcyfw3n6",
+    "title": "Teste Final",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Voce é um analista senior em PMOC (Plano de Manutenção, Operação e Controle) de sistemas de climatização. Responda as perguntas com base nas normas ABNT NBR 16401-1:2023, ABNT NBR 16401-2:2023 e ABNT NBR 16401-3:2023.",
+        "timestamp": 1767923252264
+      },
+      {
+        "role": "user",
+        "content": "Ol�, meu nome � Bill",
+        "timestamp": 1767923258853
+      },
+      {
+        "role": "assistant",
+        "content": "Olá Bill! Como posso ajudá-lo hoje?",
+        "timestamp": 1767923263451
+      },
+      {
+        "role": "user",
+        "content": "Qual � o meu nome?",
+        "timestamp": 1767923270644
+      },
+      {
+        "role": "assistant",
+        "content": "Não tenho informações sobre o seu nome. Qual é o seu nome?",
+        "timestamp": 1767923279240
+      }
+    ],
+    "createdAt": 1767923252264,
+    "updatedAt": 1767923279240,
+    "model": "opencode/minimax-m2.1-free",
+    "systemPrompt": "Voce é um analista senior em PMOC (Plano de Manutenção, Operação e Controle) de sistemas de climatização. Responda as perguntas com base nas normas ABNT NBR 16401-1:2023, ABNT NBR 16401-2:2023 e ABNT NBR 16401-3:2023."
+  },
+  "mk68d7a17yjyp6ugs3y": {
+    "id": "mk68d7a17yjyp6ugs3y",
+    "title": "Test Chat",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a helpful assistant.",
+        "timestamp": 1767924106777
+      }
+    ],
+    "createdAt": 1767924106777,
+    "updatedAt": 1767924106777,
+    "model": "opencode-zen/minimax-m2.1-free",
+    "systemPrompt": "You are a helpful assistant."
+  },
+  "mk68rlefdom03arpsbo": {
+    "id": "mk68rlefdom03arpsbo",
+    "title": "Debug Test",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a helpful assistant.",
+        "timestamp": 1767924778263
+      }
+    ],
+    "createdAt": 1767924778263,
+    "updatedAt": 1767924778263,
+    "model": "opencode/minimax-m2.1-free",
+    "systemPrompt": "You are a helpful assistant."
+  },
+  "mk68ud9lvikcib5cp5": {
+    "id": "mk68ud9lvikcib5cp5",
+    "title": "PS Test",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are helpful.",
+        "timestamp": 1767924907689
+      },
+      {
+        "role": "user",
+        "content": "Hello!",
+        "timestamp": 1767924913314
+      },
+      {
+        "role": "assistant",
+        "content": "A cadeia de caracteres não tem o terminador: '.\r\n    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException\r\n    + FullyQualifiedErrorId : TerminatorExpectedAtEndOfString",
+        "timestamp": 1767924913814
+      }
+    ],
+    "createdAt": 1767924907689,
+    "updatedAt": 1767924913814,
+    "model": "opencode/minimax-m2.1-free",
+    "systemPrompt": "You are helpful."
+  },
+  "mk68v0gnx8ka9z4pete": {
+    "id": "mk68v0gnx8ka9z4pete",
+    "title": "Fixed Test",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a coding assistant.",
+        "timestamp": 1767924937751
+      },
+      {
+        "role": "user",
+        "content": "Hello! What can you help me with?",
+        "timestamp": 1767924943082
+      },
+      {
+        "role": "assistant",
+        "content": "I'm opencode, a CLI coding assistant. I can help you with:\n\n- Writing, debugging, and refactoring code\n- Navigating and understanding codebases\n- Running shell commands and build tools\n- Git operations (commits, branches, PRs)\n- Web searches and code examples\n- File editing and management\n\nWhat would you like help with?",
+        "timestamp": 1767924949365
+      }
+    ],
+    "createdAt": 1767924937751,
+    "updatedAt": 1767924949365,
+    "model": "opencode/minimax-m2.1-free",
+    "systemPrompt": "You are a coding assistant."
+  },
+  "mk68w5xyqs60eyd8e8k": {
+    "id": "mk68w5xyqs60eyd8e8k",
+    "title": "File Test",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a coding assistant.",
+        "timestamp": 1767924991510
+      },
+      {
+        "role": "user",
+        "content": "Hello!",
+        "timestamp": 1767924997978
+      },
+      {
+        "role": "assistant",
+        "content": "opencode run [message..]\n\nrun opencode with a message\n\nPositionals:\n  message  message to send                                                     [array] [default: []]\n\nOptions:\n  -h, --help        show help                                                              [boolean]\n  -v, --version     show version number                                                    [boolean]\n      --print-logs  print logs to stderr                                                   [boolean]\n      --log-level   log level                   [string] [choices: \"DEBUG\", \"INFO\", \"WARN\", \"ERROR\"]\n      --command     the command to run, use message for args                                [string]\n  -c, --continue    continue the last session                                              [boolean]\n  -s, --session     session id to continue                                                  [string]\n      --share       share the session                                                      [boolean]\n  -m, --model       model to use in the format of provider/model                            [string]\n      --agent       agent to use                                                            [string]\n      --format      format: default (formatted) or json (raw JSON events)\n                                          [string] [choices: \"default\", \"json\"] [default: \"default\"]\n  -f, --file        file(s) to attach to message                                             [array]\n      --title       title for the session (uses truncated prompt if no value provided)      [string]\n      --attach      attach to a running opencode server (e.g., http://localhost:4096)       [string]\n      --port        port for the local server (defaults to random port if no value provided)[number]\n      --variant     model variant (provider-specific reasoning effort, e.g., high, max, minimal)\n                                                                                            [string]",
+        "timestamp": 1767924999585
+      }
+    ],
+    "createdAt": 1767924991510,
+    "updatedAt": 1767924999585,
+    "model": "opencode/minimax-m2.1-free",
+    "systemPrompt": "You are a coding assistant."
+  },
+  "mk68wxu1fxfcofl6ckl": {
+    "id": "mk68wxu1fxfcofl6ckl",
+    "title": "Here-String Test",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a coding assistant.",
+        "timestamp": 1767925027657
+      }
+    ],
+    "createdAt": 1767925027657,
+    "updatedAt": 1767925027657,
+    "model": "opencode/minimax-m2.1-free",
+    "systemPrompt": "You are a coding assistant."
+  },
+  "mk68xnyzga33va8livw": {
+    "id": "mk68xnyzga33va8livw",
+    "title": "PS Script Test",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a coding assistant.",
+        "timestamp": 1767925061531
+      },
+      {
+        "role": "user",
+        "content": "Hello!",
+        "timestamp": 1767925066856
+      },
+      {
+        "role": "assistant",
+        "content": "Hello! How can I help you today?",
+        "timestamp": 1767925072383
+      },
+      {
+        "role": "user",
+        "content": "Can you help me create a Python hello world?",
+        "timestamp": 1767925078714
+      },
+      {
+        "role": "assistant",
+        "content": "I'll create a simple Python \"Hello, World!\" program for you.\r\nCreated `hello.py`. Run it with:",
+        "timestamp": 1767925111933
+      }
+    ],
+    "createdAt": 1767925061531,
+    "updatedAt": 1767925111933,
+    "model": "opencode/minimax-m2.1-free",
+    "systemPrompt": "You are a coding assistant."
+  },
+  "mk699g2n9rretrqtjwl": {
+    "id": "mk699g2n9rretrqtjwl",
+    "title": "SDK Test",
+    "opencodeSessionId": "ses_45f6c056fffe6TbPyFc1jzRa2U",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a helpful coding assistant.",
+        "timestamp": 1767925611280
+      },
+      {
+        "role": "user",
+        "content": "Hello! What can you help me with?",
+        "timestamp": 1767925616806
+      },
+      {
+        "role": "assistant",
+        "content": "I can help with software engineering tasks like writing and debugging code, refactoring, explaining code, file operations, running commands, searching codebases, and researching documentation.",
+        "timestamp": 1767925622263
+      },
+      {
+        "role": "user",
+        "content": "Can you create a Python file that says hello?",
+        "timestamp": 1767925628656
+      },
+      {
+        "role": "assistant",
+        "content": "\nThe file `hello.py` already exists with the code to print \"Hello, World!\".",
+        "timestamp": 1767925636986
+      }
+    ],
+    "createdAt": 1767925611280,
+    "updatedAt": 1767925636986,
+    "model": "opencode/minimax-m2.1-free",
+    "systemPrompt": "You are a helpful coding assistant."
+  },
+  "mk69bp19bzwx55pdo77": {
+    "id": "mk69bp19bzwx55pdo77",
+    "title": "teste",
+    "opencodeSessionId": "ses_45f6a6bb2ffec6q4hKOzwCFGCC",
+    "messages": [
+      {
+        "role": "user",
+        "content": "teste",
+        "timestamp": 1767925719497
+      },
+      {
+        "role": "assistant",
+        "content": "Hello! I'm ready to help with your software engineering tasks. What would you like to work on?",
+        "timestamp": 1767925723022
+      }
+    ],
+    "createdAt": 1767925716093,
+    "updatedAt": 1767925723022,
+    "model": "opencode/minimax-m2.1-free",
+    "systemPrompt": null
+  }
+}
