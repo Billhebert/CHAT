@@ -41,6 +41,23 @@ services:
       timeout: 5s
       retries: 5
 
+  # Ollama for Local Embeddings
+  ollama:
+    image: ollama/ollama:latest
+    container_name: chat-ollama
+    restart: unless-stopped
+    volumes:
+      - ollama_data:/root/.ollama
+    ports:
+      - "11434:11434"
+    networks:
+      - chat-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11434/"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
   # Backend API
   backend:
     build:
@@ -56,7 +73,8 @@ services:
       JWT_ACCESS_SECRET: ${JWT_ACCESS_SECRET:-your-super-secret-jwt-access-key-change-in-production}
       JWT_REFRESH_SECRET: ${JWT_REFRESH_SECRET:-your-super-secret-jwt-refresh-key-change-in-production}
       QDRANT_URL: http://qdrant:6333
-      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      OLLAMA_URL: http://ollama:11434
+      OLLAMA_EMBEDDING_MODEL: ${OLLAMA_EMBEDDING_MODEL:-nomic-embed-text}
       FILE_STORE_PATH: /app/storage
       FILE_STORE_TYPE: local
       MODELS_FILE: /app/models.json
@@ -71,6 +89,8 @@ services:
       postgres:
         condition: service_healthy
       qdrant:
+        condition: service_healthy
+      ollama:
         condition: service_healthy
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
@@ -101,6 +121,8 @@ volumes:
   postgres_data:
     driver: local
   qdrant_data:
+    driver: local
+  ollama_data:
     driver: local
   storage_data:
     driver: local

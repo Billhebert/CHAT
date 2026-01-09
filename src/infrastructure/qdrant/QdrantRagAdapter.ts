@@ -1,22 +1,29 @@
 import { QdrantClient } from '@qdrant/js-client-rest';
 import { RagPort } from '../../application/ports/RagPort.js';
 import { RagQuery, RagResult } from '../../domain/rag/RagQuery.js';
-import OpenAI from 'openai';
 
 export class QdrantRagAdapter implements RagPort {
   private client: QdrantClient;
-  private openai: OpenAI;
+  private ollamaUrl: string;
+  private embeddingModel: string;
+  private embeddingDimension: number;
 
   constructor() {
     const url = process.env.QDRANT_URL || 'http://localhost:6333';
     this.client = new QdrantClient({ url });
 
-    // Inicializa OpenAI para embeddings
-    const apiKey = process.env.OPENAI_API_KEY;
-    if (!apiKey) {
-      throw new Error('OPENAI_API_KEY environment variable is required for RAG functionality');
-    }
-    this.openai = new OpenAI({ apiKey });
+    // Configuração do Ollama para embeddings
+    this.ollamaUrl = process.env.OLLAMA_URL || 'http://localhost:11434';
+    this.embeddingModel = process.env.OLLAMA_EMBEDDING_MODEL || 'nomic-embed-text';
+
+    // Dimensões por modelo
+    const modelDimensions: Record<string, number> = {
+      'nomic-embed-text': 768,
+      'mxbai-embed-large': 1024,
+      'all-minilm': 384,
+    };
+
+    this.embeddingDimension = modelDimensions[this.embeddingModel] || 768;
   }
 
   private getCollectionName(tenantId: string): string {
@@ -32,7 +39,7 @@ export class QdrantRagAdapter implements RagPort {
       // Collection não existe, cria
       await this.client.createCollection(collectionName, {
         vectors: {
-          size: 1536, // OpenAI embedding dimension (ajustar conforme modelo)
+          size: this.embeddingDimension,
           distance: 'Cosine',
         },
       });
@@ -170,20 +177,31 @@ export class QdrantRagAdapter implements RagPort {
   }
 
   /**
-   * Gera embedding usando OpenAI API
-   * Modelo: text-embedding-3-small (1536 dimensões, custo-efetivo)
+   * Gera embedding usando Ollama (local, self-hosted)
+   * Modelo padrão: nomic-embed-text (768 dimensões)
    */
   private async generateEmbedding(text: string): Promise<number[]> {
     try {
-      const response = await this.openai.embeddings.create({
-        model: 'text-embedding-3-small',
-        input: text,
-        encoding_format: 'float',
+      const response = await fetch(`${this.ollamaUrl}/api/embeddings`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          model: this.embeddingModel,
+          prompt: text,
+        }),
       });
 
-      return response.data[0].embedding;
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`Ollama API error: ${response.status} - ${errorText}`);
+      }
+
+      const data = await response.json();
+      return data.embedding;
     } catch (error) {
-      console.error('Error generating embedding:', error);
+      console.error('Error generating embedding with Ollama:', error);
       throw new Error(`Failed to generate embedding: ${error instanceof Error ? error.message : 'Unknown error'}`);
     }
   }

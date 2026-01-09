@@ -19,13 +19,14 @@ A comprehensive, production-ready multi-tenant AI chat platform with advanced au
 
 ### RAG (Retrieval-Augmented Generation)
 - **Vector Database**: Qdrant for semantic search
-- **OpenAI Embeddings**: Uses text-embedding-3-small for semantic vectors
+- **Ollama Embeddings**: Self-hosted local embeddings (nomic-embed-text, 768 dimensions)
+- **No External API Costs**: Fully self-hosted RAG solution
 - **ACL per Chunk**: Every chunk has its own access scope
 - **Document Versioning**: Track document changes over time
 - **Multiple Formats**: PDF, DOCX, TXT, MD, and more
 - **Hybrid Chunking**: Intelligent text segmentation
 
-> **⚠️ Important**: RAG functionality requires an OpenAI API key. Set `OPENAI_API_KEY` in your `.env` file or environment variables.
+> **ℹ️ Note**: RAG uses Ollama for embeddings. The `nomic-embed-text` model is downloaded automatically on first use. Alternatively, you can use `mxbai-embed-large` or `all-minilm` by setting `OLLAMA_EMBEDDING_MODEL` in your `.env` file.
 
 ### Tools & Plugins
 - **MCP Support**: Both process-based and HTTP-based Model Context Protocol
@@ -116,8 +117,8 @@ npm run install:all
 3. **Setup environment**
 ```bash
 cp .env.example .env
-# Edit .env with your configuration
-# REQUIRED for RAG: Set OPENAI_API_KEY in .env
+# Edit .env with your configuration (JWT secrets, etc)
+# Ollama is auto-configured for RAG embeddings
 ```
 
 4. **Setup database**
@@ -129,9 +130,16 @@ npm run prisma:generate
 npm run prisma:migrate
 ```
 
-5. **Start Qdrant (optional, for RAG)**
+5. **Start Qdrant and Ollama (for RAG)**
 ```bash
+# Start Qdrant
 docker run -p 6333:6333 qdrant/qdrant
+
+# Start Ollama
+docker run -p 11434:11434 ollama/ollama
+
+# Pull embedding model (first time only)
+docker exec -it <ollama-container-id> ollama pull nomic-embed-text
 ```
 
 6. **Run the application**
@@ -322,10 +330,25 @@ docker-compose exec postgres pg_dump -U chatuser chat_platform > backup.sql
 
 - **PostgreSQL 16**: Production database
 - **Qdrant**: Vector database for RAG
+- **Ollama**: Self-hosted embeddings for RAG (no API costs!)
 - **Backend API**: Node.js application
 - **Frontend**: React app with Nginx
 
 All services have health checks and auto-restart policies.
+
+### First-Time Ollama Setup
+
+After starting the stack for the first time, pull the embedding model:
+
+```bash
+# Wait for Ollama to be healthy
+docker-compose exec ollama ollama pull nomic-embed-text
+
+# Verify model is available
+docker-compose exec ollama ollama list
+```
+
+This downloads the `nomic-embed-text` model (~274MB) for generating embeddings.
 
 ## 🔄 Migration Path
 
