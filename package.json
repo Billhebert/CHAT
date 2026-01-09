@@ -7,12 +7,17 @@
   "scripts": {
     "start": "node server.js",
     "dev": "tsx watch src/main.ts",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:all": "concurrently \"npm run dev\" \"npm run dev:frontend\"",
     "build": "tsc",
+    "build:frontend": "cd frontend && npm run build",
+    "build:all": "npm run build && npm run build:frontend",
     "build:legacy": "tsc && node dist/main.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
-    "prisma:studio": "prisma studio"
+    "prisma:studio": "prisma studio",
+    "install:all": "npm install && cd frontend && npm install"
   },
   "keywords": [
     "opencode",
@@ -48,6 +53,7 @@
     "@types/node": "^22.10.5",
     "@types/uuid": "^10.0.0",
     "@types/ws": "^8.5.13",
+    "concurrently": "^9.1.2",
     "prisma": "^6.1.0",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2"
