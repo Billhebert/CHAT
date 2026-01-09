@@ -71,14 +71,33 @@ src/
 
 ## 🚀 Quick Start
 
-### Prerequisites
+### Option 1: Docker (Recommended for Production) 🐳
 
-- Node.js 18+
-- PostgreSQL 14+
-- Qdrant (optional, can use Docker)
-- npm or yarn
+**Prerequisites**: Docker 20.10+ and Docker Compose 2.0+
 
-### Installation
+```bash
+# 1. Clone repository
+git clone <your-repo-url>
+cd CHAT
+
+# 2. Create .env file
+cp .env.example .env
+# Edit .env and set JWT secrets!
+
+# 3. Start everything with one command
+docker-compose up -d
+
+# 4. Access the application
+# Frontend: http://localhost
+# Backend: http://localhost:3000
+# Qdrant Dashboard: http://localhost:6334/dashboard
+```
+
+That's it! Everything is running. See [DOCKER.md](./DOCKER.md) for detailed documentation.
+
+### Option 2: Local Development
+
+**Prerequisites**: Node.js 18+, PostgreSQL 14+, Qdrant (optional)
 
 1. **Clone the repository**
 ```bash
@@ -86,9 +105,9 @@ git clone <your-repo-url>
 cd CHAT
 ```
 
-2. **Install dependencies**
+2. **Install all dependencies (backend + frontend)**
 ```bash
-npm install
+npm run install:all
 ```
 
 3. **Setup environment**
@@ -113,13 +132,25 @@ docker run -p 6333:6333 qdrant/qdrant
 
 6. **Run the application**
 ```bash
-# Development
+# Development - both backend and frontend
+npm run dev:all
+
+# Or run separately:
+# Backend only (port 3000)
 npm run dev
 
+# Frontend only (port 5173)
+npm run dev:frontend
+
 # Production build
-npm run build
+npm run build:all
 npm start
 ```
+
+7. **Access the application**
+- Frontend: http://localhost:5173 (dev) or http://localhost (prod)
+- Backend API: http://localhost:3000
+- API Health: http://localhost:3000/health
 
 ## 📋 API Endpoints
 
@@ -254,23 +285,60 @@ Key entities:
 - **Policy**: Access control policies
 - **AuditLog**: Immutable audit trail
 
+## 🐳 Docker Deployment
+
+Complete Docker setup included! See [DOCKER.md](./DOCKER.md) for full documentation.
+
+### Quick Docker Commands
+
+```bash
+# Start all services
+docker-compose up -d
+
+# View logs
+docker-compose logs -f
+
+# Stop services
+docker-compose down
+
+# Rebuild and restart
+docker-compose up -d --build
+
+# Run migrations
+docker-compose exec backend npx prisma migrate deploy
+
+# Open Prisma Studio
+docker-compose exec backend npx prisma studio
+
+# Backup database
+docker-compose exec postgres pg_dump -U chatuser chat_platform > backup.sql
+```
+
+### Docker Stack Includes
+
+- **PostgreSQL 16**: Production database
+- **Qdrant**: Vector database for RAG
+- **Backend API**: Node.js application
+- **Frontend**: React app with Nginx
+
+All services have health checks and auto-restart policies.
+
 ## 🔄 Migration Path
 
-### Current: Windows Development
-- Local PostgreSQL
-- Local file storage
-- MCP process plugins (with path/npx considerations)
+### Development (Local)
+- ✅ Local Node.js
+- ✅ Local PostgreSQL or Docker PostgreSQL
+- ✅ Local file storage
+- ✅ Hot reload for development
 
-### Future: Linux Production
-- Dockerized services (API + PostgreSQL + Qdrant)
-- S3 file storage
-- Kubernetes deployment
-- Vault for secrets management
-
-To migrate, update:
-1. `FILE_STORE_TYPE=s3` in `.env`
-2. MCP plugin manifests (standardize `command` and `args`)
-3. Dockerfiles and docker-compose.yml
+### Production (Docker)
+- ✅ Fully Dockerized (PostgreSQL + Qdrant + Backend + Frontend)
+- ✅ Nginx reverse proxy
+- ✅ Persistent volumes
+- ✅ Health checks
+- 🔜 S3 file storage (update `FILE_STORE_TYPE=s3`)
+- 🔜 Kubernetes manifests
+- 🔜 Vault for secrets management
 
 ## 📊 Monitoring & Observability
 
